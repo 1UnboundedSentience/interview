@@ -2,6 +2,19 @@
 
     <div class="app slds-p-around_x-large">
 
+            <template if:true={retrievedMovies}>
+                    {retrievedMovies}
+                    <template for:each={movieData} for:item="movie">
+                            <tr key={movie.key}>
+                                    <th scope="col">
+                                        <div title={movie.key}>{movie.key}</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div title={movie.value}>{movie.value}</div>
+                                    </th>
+                                </tr>
+                    </template>                    
+            </template>
 
         <h1 class="slds-text-heading_large">Fast and Furious Movie Info</h1>
             <table>
