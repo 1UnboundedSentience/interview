@@ -4,10 +4,11 @@
             <h1 class="slds-text-heading_large">Fast and Furious Movie Info</h1>
             <h1 class="slds-text-heading_large">Retrieved from the Gradient Works API</h1>
             <template if:true={retrievedMovies}>
-                    {retrievedMovies}
                     <template for:each={retrievedMovies} for:item="movie">
                             {movie.id}
-                            {movie.title}                          
+                            {movie.title}
+                            {movie.releaseDate}
+                            {movie.openingRevenue}                                                
                     </template>                    
             </template>           
     </div>

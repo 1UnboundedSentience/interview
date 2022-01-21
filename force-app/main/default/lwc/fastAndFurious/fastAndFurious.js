@@ -8,11 +8,12 @@ export default class App extends LightningElement {
   populateWithResponse({error, data}) {
     if (data) {
       for (let i = 0; i<data.length; i++) {
+        const formattedDate = this.formatTheDate(data[i].release_date);
         this.retrievedMovies.push({
           "id" : data[i].id,
           "title" : data[i].title,
-          "release_date" : data[i].release_date,
-          "opening_revenue" : data[i].opening_revenue,
+          "releaseDate" : formattedDate,
+          "openingRevenue" : '$' + data[i].opening_revenue
         });
       }
       this.error = undefined;
@@ -20,5 +21,13 @@ export default class App extends LightningElement {
       this.retrievedMovies = undefined;
       this.error = error;
     }
+  }
+
+  // Formats the Release Date to MM, DD, YYYY from YYYY-MM-DDTHH:MM:SSZ
+  formatTheDate(inputDate) {
+    const month = inputDate.slice(5,7);
+    const day = inputDate.slice(8,10);
+    const year = inputDate.slice(0,4);
+    return month + ', ' + day + ', ' + year;
   }
 }
