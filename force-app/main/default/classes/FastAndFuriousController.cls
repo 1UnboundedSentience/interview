@@ -4,7 +4,7 @@ public with sharing class FastAndFuriousController {
     }
 
     @AuraEnabled(cacheable=true)    
-    public static Map<String, Object> returnJSON() {
+    public static Object returnJSON() {
         Map<String, Object> results = new Map<String, Object>();
 
         Http http = new Http();
@@ -17,6 +17,6 @@ public with sharing class FastAndFuriousController {
             results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
             System.debug(results);
         }
-        return results;
+        return results.get('movies');
     }
 }
