@@ -37,6 +37,6 @@ export default class App extends LightningElement {
     const month = inputDate.slice(5,7);
     const day = inputDate.slice(8,10);
     const year = inputDate.slice(0,4);
-    return month + ', ' + day + ', ' + year;
+    return month + '/' + day + '/' + year;
   }
 }
