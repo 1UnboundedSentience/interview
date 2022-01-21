@@ -1,30 +1,14 @@
 <template>
 
     <div class="app slds-p-around_x-large">
-
+            <h1 class="slds-text-heading_large">Fast and Furious Movie Info</h1>
+            <h1 class="slds-text-heading_large">Retrieved from the Gradient Works API</h1>
             <template if:true={retrievedMovies}>
                     {retrievedMovies}
-                    <template for:each={movieData} for:item="movie">
-                            <tr key={movie.key}>
-                                    <th scope="col">
-                                        <div title={movie.key}>{movie.key}</div>
-                                    </th>
-                                    <th scope="col">
-                                        <div title={movie.value}>{movie.value}</div>
-                                    </th>
-                                </tr>
+                    <template for:each={retrievedMovies} for:item="movie">
+                            {movie.id}
+                            {movie.title}                          
                     </template>                    
-            </template>
-
-        <h1 class="slds-text-heading_large">Fast and Furious Movie Info</h1>
-            <table>
-                <tr>
-                <th>Movie Id</th>
-                <th>Title</th>
-                <th>Release Date</th>
-                <th>Opening Revenue</th>
-                </tr>
-
-            </table>            
+            </template>           
     </div>
 </template>
