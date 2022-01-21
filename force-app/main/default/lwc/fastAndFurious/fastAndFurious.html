@@ -10,6 +10,12 @@
                             {movie.releaseDate}
                             {movie.openingRevenue}                                                
                     </template>                    
-            </template>           
+            </template>         
+            
+            <lightning-datatable
+                key-field="id"
+                data={retrievedMovies}
+                columns={columns}>
+            </lightning-datatable>            
     </div>
 </template>

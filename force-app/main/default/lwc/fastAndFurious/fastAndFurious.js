@@ -1,7 +1,16 @@
 import { LightningElement, wire, track } from "lwc";
 import getResponse from '@salesforce/apex/FastAndFuriousController.returnJSON';
 
+const columns = [
+  { label: 'Id', fieldName: 'Id' },
+  { label: 'Title', fieldName: 'title'},
+  { label: 'Release Date', fieldName: 'releaseDate', type: 'date'},
+  { label: 'Opening Revenue', fieldName: 'openingRevenue', type: 'currency' }
+];
+
+
 export default class App extends LightningElement {
+  columns = columns;
   @track retrievedMovies = [];
   @track error;
   @wire(getResponse)
