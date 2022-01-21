@@ -1,0 +1,27 @@
+<template>
+    <div class="app slds-p-around_x-large">
+        <h1 class="slds-text-heading_large">Fast and Furious Movie Info</h1>
+            <table>
+                <tr>
+                <th>Movie Id</th>
+                <th>Title</th>
+                <th>Release Date</th>
+                <th>Opening Revenue</th>
+                </tr>
+                <template for:each={retrievedMovies} for:item=“movie”>
+                    <tr key={movie.id}>
+                        <td>{movie.id}</td>
+                    </tr>
+                    <tr key={movie.title}>
+                        <td>{movie.title}</td>
+                    </tr>
+                    <tr key={movie.release_date}>
+                        <td>{movie.release_date}</td>
+                    </tr>
+                    <tr key={movie.opening_revenue}>
+                        <td>{movie.opening_revenue}</td>
+                    </tr>
+                </template>
+            </table>            
+    </div>
+</template>
